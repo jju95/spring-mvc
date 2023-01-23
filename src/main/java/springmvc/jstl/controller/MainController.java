@@ -20,7 +20,9 @@ public class MainController {
     @GetMapping("/join")
     public ModelAndView join(){
         ModelAndView mv = new ModelAndView();
-        mv.addObject("person",new Person());
+        Person returnPerson = Person.builder().build();
+
+        mv.addObject("person",returnPerson);
         mv.setViewName("join");
         return mv;
     }
