@@ -24,6 +24,12 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+	implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
+	implementation 'javax.servlet:jstl:1.2'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.7.1'
+	implementation 'org.webjars:bootstrap:5.2.0'
 }
 
 tasks.named('test') {
