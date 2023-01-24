@@ -11,28 +11,13 @@
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
             crossorigin="anonymous"></script>
     <title>Join us!</title>
+
 </head>
-<script type="text/javascript">
-    function previewImg(input){
-        if(input.files && input.files[0]){
-            var reader = new FileReader();
-            reader.onload = function (e){
-                $("#preview").attr("src",e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }else{
-            $("#preview").attr("src","");
-        }
-    }
-</script>
 <body>
 <div>
-    <span> 가입하기 </span>
+    <span>  가입 완료 창 </span>
 </div>
 <div>
-    <div >
-        <img id="preview" style="height: 30%; width: 15%;"/>
-    </div>
     <form:form method="post" enctype="multipart/form-data" modelAttribute="person">
         <table>
             <thead>
@@ -45,7 +30,7 @@
                     <form:label path="name">이름</form:label>
                 </td>
                 <td>
-                    <form:input path="name"/>
+                    <c:out value="${person.name}" />
                 </td>
             </tr>
             <tr>
@@ -53,7 +38,7 @@
                     <form:label path="age">나이</form:label>
                 </td>
                 <td>
-                    <form:input path="age" />
+                    <c:out value="${person.age}" />
                 </td>
             </tr>
             <tr>
@@ -61,8 +46,14 @@
                     <form:label path="gender">성별</form:label>
                 </td>
                 <td>
-                    남자 <form:radiobutton path="gender" value="Male"/>
-                    여자 <form:radiobutton path="gender" value="FeMale" />
+                    <c:choose>
+                        <c:when test="${person.gender eq 'Male'}">
+                            <p>남자</p>
+                        </c:when>
+                        <c:otherwise>
+                            <p>여자</p>
+                        </c:otherwise>
+                    </c:choose>
                 </td>
             </tr>
             <tr>
@@ -70,24 +61,20 @@
                     <form:label path="hobby">취미</form:label>
                 </td>
                 <td>
-                    뮤직리스닝 <form:checkbox path="hobby" value="music-listening"/>
-                    유튜브 <form:checkbox path="hobby" value="youtube" />
-                    운동 <form:checkbox path="hobby" value="exercise" />
+                    <c:choose>
+                        <c:when test="${person.hobby eq 'music-listening'}">
+                            <p>남자</p>
+                        </c:when>
+                        <c:when test="${person.hobby eq 'youtube'}" >
+                            <p>유튜브 감상</p>
+                        </c:when>
+                        <c:otherwise>
+                            <p>운동</p>
+                        </c:otherwise>
+                    </c:choose>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    대표 썸네일
-                </td>
-                <td>
-                    <form:input path="file" type="file" onchange="previewImg(this);" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <form:button> submit !</form:button>
-                </td>
-            </tr>
+
 
             </tbody>
         </table>

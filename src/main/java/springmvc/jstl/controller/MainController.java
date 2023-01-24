@@ -2,6 +2,8 @@ package springmvc.jstl.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,12 +20,10 @@ public class MainController {
     }
 
     @GetMapping("/join")
-    public ModelAndView join(){
-        ModelAndView mv = new ModelAndView();
-        Person returnPerson = Person.builder().build();
+    public String join(Model model){
+        Person person = new Person();
+        model.addAttribute("person", person);
 
-        mv.addObject("person",returnPerson);
-        mv.setViewName("join");
-        return mv;
+        return "join";
     }
 }

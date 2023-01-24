@@ -5,13 +5,15 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
-@Getter @Setter @Builder
+@Getter @Setter
 public class Person {
 
-    public final String name;
-    public final String age;
-    public final String gender;
-    public final String[] hobby;
-    public final MultipartFile file;
+    public Long id = 1L;
+    public String name;
+    public String age;
+    public String gender;
+    public String[] hobby;
+
+    public MultipartFile file;
 
 }
