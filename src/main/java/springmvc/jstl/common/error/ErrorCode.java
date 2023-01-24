@@ -1,4 +1,4 @@
-package springmvc.jstl.common;
+package springmvc.jstl.common.error;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

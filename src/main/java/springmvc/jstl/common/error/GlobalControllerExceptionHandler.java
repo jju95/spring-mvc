@@ -1,4 +1,4 @@
-package springmvc.jstl.common;
+package springmvc.jstl.common.error;
 
 import org.apache.tomcat.util.http.fileupload.impl.SizeLimitExceededException;
 import org.springframework.http.HttpStatus;
